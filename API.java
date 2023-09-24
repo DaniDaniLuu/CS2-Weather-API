@@ -19,7 +19,7 @@ public class API {
     }
 
     public void setWeatherUrl(double lat, double lon){
-        weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + getKEY();
+        weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + getKEY() + "&units=imperial";
     }
 
     public String getGeoUrl(){
@@ -27,7 +27,7 @@ public class API {
     }
 
     public void setGeoUrl(String cityName){
-        geoURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=" + getKEY();
+        geoURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=3&appid=" + getKEY();
     }
 
     public String getZipUrl(){
@@ -38,7 +38,8 @@ public class API {
         zipURL = "http://api.openweathermap.org/geo/1.0/zip?zip=" + zipcode + "&appid=" + getKEY();
     }
 
-    public HttpResponse<String> weatherAPI() throws IOException, InterruptedException{
+    public HttpResponse<String> weatherGET(double lat, double lon) throws IOException, InterruptedException{
+        setWeatherUrl(lat, lon);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(getWeatherUrl()))
@@ -48,7 +49,8 @@ public class API {
         return response;
     }
 
-    public HttpResponse<String> zipAPI() throws IOException, InterruptedException{
+    public HttpResponse<String> latlonGET(int zipcode) throws IOException, InterruptedException{
+        setZipUrl(zipcode);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(getZipUrl()))
@@ -58,7 +60,8 @@ public class API {
         return response;
     }
 
-    public HttpResponse<String> geoAPI() throws IOException, InterruptedException{
+    public HttpResponse<String> latlonGET(String city) throws IOException, InterruptedException{
+        setGeoUrl(city);
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(getGeoUrl()))

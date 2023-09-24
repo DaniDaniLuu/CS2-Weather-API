@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "main",
+            "projectName": "CS2-Weather-API_42569b07"
+        },
+        {
+            "type": "java",
             "name": "HW_5_22",
             "request": "launch",
             "mainClass": "HW_5_22",
