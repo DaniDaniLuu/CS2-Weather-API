@@ -1,4 +1,4 @@
-import java.util.*;
+package WeatherJson;
 public class WeatherLatLon {
     private double lat;
     private double lon;

@@ -1,12 +1,6 @@
-public class WeatherInfo {
-    private weatherMain main;
+package WeatherJson;
 
-    public weatherMain getWeatherMain(){
-        return main;
-    }
-}
-
-class weatherMain{
+public class weatherMain {
     private String temp;
     private String temp_min;
     private String temp_max;

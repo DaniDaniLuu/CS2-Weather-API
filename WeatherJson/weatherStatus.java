@@ -1,14 +1,6 @@
-import java.util.*;
+package WeatherJson;
 
-public class WeatherDescription {
-    private ArrayList<weatherStatus> weather;
-
-    public ArrayList<weatherStatus> getWeather(){
-        return weather;
-    }
-}
-
-class weatherStatus{
+public class weatherStatus {
     private String main;
     private String description;
 

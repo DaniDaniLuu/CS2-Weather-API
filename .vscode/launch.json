@@ -9,6 +9,13 @@
             "name": "main",
             "request": "launch",
             "mainClass": "main",
+            "projectName": "CS2-Weather-API_ebff1019"
+        },
+        {
+            "type": "java",
+            "name": "main",
+            "request": "launch",
+            "mainClass": "main",
             "projectName": "CS2-Weather-API_42569b07"
         },
         {
