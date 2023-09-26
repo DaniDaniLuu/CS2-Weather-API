@@ -1,0 +1,1 @@
+Classes for gson to populate inorder to retrieve the appropriate key:value pairs

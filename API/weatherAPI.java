@@ -1,11 +1,12 @@
+package API;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class API {
-    private String apiKEY = "fd44aa2af90ff0c5098737e909f9f521";
+public class weatherAPI {
+    private final String apiKEY = "fd44aa2af90ff0c5098737e909f9f521";
     private String weatherUrl;
     private String geoURL;
     private String zipURL;
@@ -37,7 +38,7 @@ public class API {
     public void setZipUrl(int zipcode){
         zipURL = "http://api.openweathermap.org/geo/1.0/zip?zip=" + zipcode + "&appid=" + getKEY();
     }
-
+    // API call to get the weather data
     public HttpResponse<String> weatherGET(double lat, double lon) throws IOException, InterruptedException{
         setWeatherUrl(lat, lon);
         HttpClient client = HttpClient.newHttpClient();
@@ -48,7 +49,7 @@ public class API {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response;
     }
-
+    // API call to get the latitude and longitude from the zipcode
     public HttpResponse<String> latlonGET(int zipcode) throws IOException, InterruptedException{
         setZipUrl(zipcode);
         HttpClient client = HttpClient.newHttpClient();
@@ -59,7 +60,7 @@ public class API {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         return response;
     }
-
+    // API call to get the latitude and longitude from the city
     public HttpResponse<String> latlonGET(String city) throws IOException, InterruptedException{
         setGeoUrl(city);
         HttpClient client = HttpClient.newHttpClient();
